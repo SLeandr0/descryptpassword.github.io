@@ -12,23 +12,32 @@
     <div class="container">
         <h2>Password Encryption</h2>
         <form id="passwordForm">
-            <label for="password">Enter Password:</label>
-            <input type="password" id="password" required>
-            <button type="button" onclick="encryptPassword()">Encrypt</button>
+            <div>
+                <label for="encryptInput">Enter Password:</label>
+                <input type="password" id="encryptInput" required>
+                <button type="button" onclick="encryptPassword()">Encrypt</button>
+            </div>
 
-            <label for="encryptedPassword">Encrypted Password:</label>
-            <input type="text" id="encryptedPassword" readonly>
-            <button type="button" onclick="copyToClipboard('encryptedPassword')">Copy</button>
+            <div>
+                <label for="encryptedPassword">Encrypted Password:</label>
+                <input type="text" id="encryptedPassword" readonly>
+                <button type="button" onclick="copyToClipboard('encryptedPassword')">Copy</button>
+            </div>
 
-            <label for="decryptedPassword">Decrypted Password:</label>
-            <input type="text" id="decryptedPassword">
+            <div>
+                <label for="decryptInput">Encrypted Password to Decrypt:</label>
+                <input type="text" id="decryptInput">
+                <button type="button" onclick="decryptPassword()">Decrypt</button>
+            </div>
 
-            <label for="displayDecryptedPassword">Display Decrypted Password:</label>
-            <input type="text" id="displayDecryptedPassword">
-            <button type="button" onclick="decryptPassword()">Decrypt</button>
-            <button type="button" onclick="copyToClipboard('displayDecryptedPassword')">Copy</button>
+            <div>
+                <label for="decryptedPassword">Decrypted Password:</label>
+                <input type="text" id="decryptedPassword" readonly>
+                <button type="button" onclick="copyToClipboard('decryptedPassword')">Copy</button>
+            </div>
+
+            <div id="copyMessage"></div>
         </form>
-        <div id="copyMessage"></div>
     </div>
 
     <script src="script.js"></script>

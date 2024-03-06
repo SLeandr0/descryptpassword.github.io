@@ -1,34 +1,59 @@
 function encryptPassword() {
-    var passwordInput = document.getElementById('password');
+    var encryptInput = document.getElementById('encryptInput');
     var encryptedPasswordInput = document.getElementById('encryptedPassword');
     var copyMessage = document.getElementById('copyMessage');
 
-    // Simples exemplo de criptografia (não use em produção real)
-    var encryptedPassword = btoa(passwordInput.value);
+    // Simulando a criptografia
+    var encryptedPassword = btoa(encryptInput.value);
 
+    // Exibindo a senha criptografada
     encryptedPasswordInput.value = encryptedPassword;
-    copyMessage.innerHTML = "<p>Copied to clipboard!</p>";
+    copyMessage.innerHTML = 'Encrypted password with success!';
+
+    // Enviar a senha criptografada para o servidor e salvar no banco de dados
+    saveEncryptedPassword(encryptedPassword);
 }
 
 function decryptPassword() {
-    var encryptedPasswordInput = document.getElementById('encryptedPassword');
+    var decryptInput = document.getElementById('decryptInput');
     var decryptedPasswordInput = document.getElementById('decryptedPassword');
-    var displayDecryptedPasswordInput = document.getElementById('displayDecryptedPassword');
     var copyMessage = document.getElementById('copyMessage');
 
-    // Simples exemplo de descriptografia (não use em produção real)
-    var decryptedPassword = atob(encryptedPasswordInput.value);
+    // Obtendo a senha criptografada
+    var encryptedPassword = decryptInput.value;
 
+    // Simulando a descriptografia
+    var decryptedPassword = atob(encryptedPassword);
+
+    // Exibindo a senha descriptografada
     decryptedPasswordInput.value = decryptedPassword;
-    displayDecryptedPasswordInput.value = decryptedPassword;
-    copyMessage.innerHTML = ""; // Limpa a mensagem de cópia
+    copyMessage.innerHTML = 'Decrypted password with success!';
 }
 
 function copyToClipboard(inputId) {
     var input = document.getElementById(inputId);
     input.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
 
     var copyMessage = document.getElementById('copyMessage');
-    copyMessage.innerHTML = "<p>Copied to clipboard!</p>";
+    copyMessage.innerHTML = 'Copied to clipboard!';
+}
+
+function saveEncryptedPassword(encryptedPassword) {
+    console.log('Enviando requisição para salvar senha criptografada...');
+
+    fetch('savePassword.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'encryptedPassword=' + encodeURIComponent(encryptedPassword),
+    })
+    .then(response => response.text())
+    .then(responseText => {
+        console.log('Resposta do servidor:', responseText);
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
 }

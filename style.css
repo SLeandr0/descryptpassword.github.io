@@ -1,41 +1,46 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
 }
 
 .container {
-    background-color: #fff;
+    max-width: 400px;
+    margin: 50px auto;
     padding: 20px;
-    border-radius: 8px;
+    background-color: #fff;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
     text-align: center;
-    width: 300px; /* Ajuste a largura conforme necessário */
-    margin: auto; /* Centraliza a caixa */
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
-    display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 input {
-    width: calc(100% - 16px); /* Leva em consideração o padding */
+    margin-bottom: 10px;
     padding: 8px;
-    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
     margin-bottom: 20px;
+    padding: 8px 20px;
     background-color: #4caf50;
     color: #fff;
-    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -43,8 +48,8 @@ button:hover {
     background-color: #45a049;
 }
 
-#encryptedPassword,
-#decryptedPassword {
-    margin-top: 20px;
-    text-align: left; /* Alinha o texto à esquerda */
+#copyMessage {
+    margin-top: 10px;
+    color: #4caf50;
+    text-align: center;
 }
