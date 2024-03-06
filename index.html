@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Password Encryption</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Password Encryption</h2>
+        <form id="passwordForm">
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" required>
+            <button type="button" onclick="encryptPassword()">Encrypt</button>
+
+            <label for="encryptedPassword">Encrypted Password:</label>
+            <input type="text" id="encryptedPassword" readonly>
+            <button type="button" onclick="copyToClipboard('encryptedPassword')">Copy</button>
+
+            <label for="decryptedPassword">Decrypted Password:</label>
+            <input type="text" id="decryptedPassword">
+
+            <label for="displayDecryptedPassword">Display Decrypted Password:</label>
+            <input type="text" id="displayDecryptedPassword">
+            <button type="button" onclick="decryptPassword()">Decrypt</button>
+            <button type="button" onclick="copyToClipboard('displayDecryptedPassword')">Copy</button>
+        </form>
+        <div id="copyMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
